@@ -14,7 +14,7 @@ minima:
     - { platform: leetcode, user_url: "https://leetcode.com/Jonnycake/" }
     - { platform: linkedin, user_url: "https://www.linkedin.com/in/jonnycake" }
 
-remote_theme: jekyll/minima@v2.5.1
+remote_theme: jekyll/minima
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
