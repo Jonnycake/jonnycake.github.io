@@ -1,3 +1,6 @@
-# Github Pages
+---
+layout: home
+---
 
-Github pages site
+## Github Pages
+Just wanted to try out github pages and see how it worked
