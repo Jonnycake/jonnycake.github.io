@@ -1,8 +1,9 @@
 title: jonnycake.github.io
-author:
-  name: Jonnycake
+paginate: 5
+paginate_path: "/page/:num/"
 
 header_pages:
+  - useful-links.md
   - about.md
 
 minima:
@@ -10,12 +11,25 @@ minima:
   date_format: "%Y-%m-%d"
 
   social_links:
-    - { platform: github, user_url: "https://github.com/Jonnycake/" }
-    - { platform: leetcode, user_url: "https://leetcode.com/Jonnycake/" }
-    - { platform: linkedin, user_url: "https://www.linkedin.com/in/jonnycake" }
+    - platform: github
+      user_url: "https://github.com/Jonnycake/"
+      title: "Github Profile"
+    - platform: linkedin
+      user_url: "https://www.linkedin.com/in/jonnycake"
+      title: "LinkedIn Account"
+    - platform: youtube
+      user_url: "https://www.youtube.com/@jonnycake-tech"
+      title: "Youtube @jonnycake-tech"
+    - platform: stackoverflow
+      user_url: "https://stackoverflow.com/users/1709643/jonnycake"
+      title: "Stackoverflow Profile"
+    - platform: leetcode
+      user_url: "https://leetcode.com/Jonnycake/"
+      title: "Leetcode Profile"
 
 remote_theme: jekyll/minima
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-paginate
