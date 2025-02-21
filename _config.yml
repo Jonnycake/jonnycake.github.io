@@ -11,10 +11,10 @@ minima:
   date_format: "%Y-%m-%d"
 
   social_links:
-    - platform: github
+    - icon: github
       user_url: "https://github.com/Jonnycake/"
       title: "Github Profile"
-    - platform: linkedin
+    - icon: linkedin
       user_url: "https://www.linkedin.com/in/jonnycake"
       title: "LinkedIn Account"
 
