@@ -12,10 +12,10 @@ minima:
 
   social_links:
     - icon: github
-      user_url: "https://github.com/Jonnycake/"
+      url: "https://github.com/Jonnycake/"
       title: "Github Profile"
     - icon: linkedin
-      user_url: "https://www.linkedin.com/in/jonnycake"
+      url: "https://www.linkedin.com/in/jonnycake"
       title: "LinkedIn Account"
 
 remote_theme: jekyll/minima
