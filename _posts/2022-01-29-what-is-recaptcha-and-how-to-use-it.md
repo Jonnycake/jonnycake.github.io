@@ -128,7 +128,7 @@ Implementing reCAPTCHA v3 is similar to the "Invisible" version in v2
 
 ```html
 <!-- Include this JavaScript file on **all** pages (so Google can better profile the user) -->
-<script src="https://www.google.com/recaptcha/api.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=RECAPTCHA_SITE_KEY"></script>
 
 <!-- Create a callback to handle form submission -->
 <script>
@@ -139,6 +139,19 @@ function onSubmit(token) {
 
 <!-- Update the submit button to be a <button> with necessary attributes -->
 <button class="g-recaptcha" data-sitekey="your_site_key" data-callback="onSubmit" data-action="submit">Submit</button>
+
+<!-- You can also trigger the check via JavaScript with the following code -->
+<script>
+/** For this to get called, you need to add onlload=checkRecaptcha as a get parameter in the api.js include **/
+function checkRecaptcha() {
+    grecaptcha.ready(function() {
+        grecaptcha.execute('RECAPTCHA_SITE_KEY', {action: 'submit'}).then(function(token) {
+            // do whatever
+        });
+    });
+}
+</script>
+
 ```
 
 For other options for triggering verification as well as more details on how it works and improving Google's user profiling, please check the official documentation.
