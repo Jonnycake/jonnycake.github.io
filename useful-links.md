@@ -18,6 +18,7 @@ This is a list of links that I find useful in my development work – will be up
 - [Services](#services)
 - [References](#references)
 - [Events](#events)
+- [Learning](#learning)
 
 ## Test Data
 
@@ -107,4 +108,11 @@ This is a list of links that I find useful in my development work – will be up
 - Advent of Code – [https://adventofcode.com/](https://adventofcode.com/)
     - Yearly advent calendar of coding challenges
 
+## Learning
 
+- LetsDefend - [https://letsdefend.io/](https://letsdefend.io/)
+    - Hands-on blue team training
+- TryHackMe - [https://tryhackme.com/](https://tryhackme.com/)
+    - Hands-on cyber security training through real-world scenarios
+- Cisco Networking ACademy - [https://www.netacad.com/](https://www.netacad.com/)
+    - Free online courses. In-person learning. Certification-aligned pathways in topics like Cybersecurity, Networking, and Python.
