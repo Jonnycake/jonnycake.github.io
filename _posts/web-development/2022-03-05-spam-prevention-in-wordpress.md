@@ -1,7 +1,6 @@
 ---
-layout: post
 title: "Spam Prevention in Wordpress"
-categories:
+categories: [Web Development]
 ---
 
 ## Overview

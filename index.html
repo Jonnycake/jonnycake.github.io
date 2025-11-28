@@ -1,18 +1,44 @@
 ---
-layout: home
-title: My Blog
+layout: custom-hero
 ---
-
-<h2>Github Pages</h2>
-<p>
-    My web hosting was set to renew in March 2025 and I decided that it was best to
-    transfer over to free hosting as I hadn't done really anything with my blog in
-    the past year.  I do still plan to get into writing blogs, but for now I don't
-    think it's worth much monetary investment.
-</p>
-<p>
-    I've transferred a few of my favorite posts from wordpress - any future ones
-    will be net new.
-</p>
-<hr />
-<h2>Recent Posts</h2>
+<section class="hero">
+    <img src="/assets/media/site/cropped-glideycake-192x192.png" style="background-color: var(--color-light);border-radius:10px;margin-bottom:10px;"/>
+    <h1>
+        Jonnycake.Tech
+        <span class="subtitle">Developer Portfolio &amp; Blog</span>
+    </h1>
+    <p>
+        Hey, I’m Jon – I’ve been in the tech world as a hobbyist since 2006 and as a
+        professional since 2014, with a focus on web applications. In my day-to-day life,
+        I frequently come across information/tips that help me to either accomplish my
+        goals or just make my life easier and I’d love to share them with you!
+    </p>
+</section>
+<section class="callouts">
+    <section>
+        <h2>Current Project</h2>
+        <p>
+            {% if site.projects.size > 0 %}
+                {{ site.projects[0].date | date: '%Y-%m-%d' }} - <a href="{{ site.projects[0].url }}">{{ site.projects[0].title }}</a>
+            {% else %}
+                <small class="no-results">Nothing to show, please check back later!</small>
+            {% endif %}
+        </p>
+        {% if site.projects.size > 1 %}
+            <a href="/projects.html" class="button-accent">See More</a>
+        {% endif %}
+    </section>
+    <section>
+        <h2>Latest Blog</h2>
+        <p>
+            {% if site.posts.size > 0 %}
+                {{ site.posts[0].date | date: '%Y-%m-%d' }} - <a href="{{ site.posts[0].url }}">{{ site.posts[0].title }}</a>
+            {% else %}
+                <small class="no-results">Nothing to show, please check back later!</small>
+            {% endif %}
+        </p>
+        {% if site.posts.size > 1 %}
+            <a href="/blogs.html" class="button-accent">See More</a>
+        {% endif %}
+    </section>
+</section>

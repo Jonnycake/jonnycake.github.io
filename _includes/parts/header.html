@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ site.site_name }} - {{ page.title | default: site.title }}</title>
+        <link href="/assets/scripts/style.css" rel="stylesheet"></link>
+        <script src="https://kit.fontawesome.com/d60c30df98.js" crossorigin="anonymous"></script>
+
+        {% if site.gtag %}
+            <!-- Google tag (gtag.js) -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.gtag }}"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '{{ site.gtag }}');
+            </script>
+        {% endif %}
+
+        <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+    </head>
+    <body>
+        <header>
+            <nav id="mobile-nav">
+                <a href="/" class="branding"><span>
+                    Home
+                </span></a>
+                <button id="nav-toggle" type="button"><i class="fa fa-caret-right"></i> Menu</button>
+            </nav>
+            <nav id="main-nav">
+                <ul>
+                    {% assign page_list = site.pages | where_exp: "page", "page.menu_order != nil and page.menu_label != nil" | sort: 'menu_order' %}
+                    {% for page in page_list %}
+                        {% if page.menu_label %}
+                            <li><a href="{{ page.url }}">{{ page.menu_label }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </nav>
+        </header>
+        <main style="">

@@ -1,0 +1,10 @@
+        </main>
+        <footer>
+            {% for account in site.socials %}
+                <a href="{{ account.url }}" rel="noopener">{{ account.label }}</a>{% unless forloop.last %} | {% endunless %}
+            {% endfor %}
+        </footer>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" type="text/javascript"></script>
+    <script src="/assets/scripts/script.js" type="text/javascript"></script>
+</html>

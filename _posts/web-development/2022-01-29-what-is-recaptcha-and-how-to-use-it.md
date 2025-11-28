@@ -1,7 +1,6 @@
 ---
-layout: post
 title: "What is reCAPTCHA and How to Use it?"
-categories:
+categories: [Web Development]
 ---
 ## What is reCAPTCHA?
 
@@ -67,25 +66,25 @@ If you want to see the different versions in action, you can check them out here
 **Link:** https://www.google.com/recaptcha/admin/create
 
 **2 - Fill in the label**
-![02 fill in label](/assets/images/2022-01-29-recaptcha/02-fill-in-the-label.png)
+![02 fill in label](/assets/media/posts/web-development/2022-01-29/02-fill-in-the-label.png)
 
 **3 - Choose which version of reCAPTCHA you want**
 
 See TLDR above for comparison
 
-![03 choose which version](/assets/images/2022-01-29-recaptcha/03-choose-which-version.png)
+![03 choose which version](/assets/media/posts/web-development/2022-01-29/03-choose-which-version.png)
 
 **4 - Enter the domain you want to use the captcha on**
 
 *Note: Domains listed will implicitly include any subdomain*
 
-![04 enter the domain](/assets/images/2022-01-29-recaptcha/04-enter-the-domain.png)
+![04 enter the domain](/assets/media/posts/web-development/2022-01-29/04-enter-the-domain.png)
 
 **5 - Accept Terms of Service and Click "Submit"**
-![05 enter terms of service](/assets/images/2022-01-29-recaptcha/05-enter-terms-of-service.png)
+![05 enter terms of service](/assets/media/posts/web-development/2022-01-29/05-enter-terms-of-service.png)
 
 **6 - Copy out the site key and secret key (these will be used later)**
-![06 copy site key](/assets/images/2022-01-29-recaptcha/06-copy-site-key.png)
+![06 copy site key](/assets/media/posts/web-development/2022-01-29/06-copy-site-key.png)
 
 ## Including on the Page
 
