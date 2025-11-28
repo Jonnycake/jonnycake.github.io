@@ -1,26 +1,31 @@
-title: jonnycake.tech
-paginate: 5
-paginate_path: "/page/:num/"
+site_name: Jonnycake.Tech
+title: Developer Portfolio & Blog
+gtag: G-YVTGX6JF66
 
-header_pages:
-  - useful-links.md
-  - about.md
+socials:
+  - name: Github Account
+    label: github
+    url: https://github.com/Jonnycake/
+    icon: fa fa-github
+  - name: LinkedIn account
+    label: linkedin
+    url: https://www.linkedin.com/in/jonnycake
+    icon: fa fa-linkedin
 
-minima:
-  skin: dark
-  date_format: "%Y-%m-%d"
+collections:
+  posts:
+    output: true
+  projects:
+    output: true
 
-  social_links:
-    - icon: github
-      url: "https://github.com/Jonnycake/"
-      title: "Github Profile"
-    - icon: linkedin
-      url: "https://www.linkedin.com/in/jonnycake"
-      title: "LinkedIn Account"
-
-remote_theme: jekyll/minima
-plugins:
-  - jekyll-remote-theme
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-paginate
+defaults:
+  - values:
+      layout: default
+  - scope:
+      type: "projects"
+    values:
+      layout: project
+  - scope:
+      type: "posts"
+    values:
+      layout: post

@@ -1,0 +1,10 @@
+---
+title: Social Links
+menu_order: 4
+menu_label: Socials
+---
+<ul>
+    {% for account in site.socials %}
+        <li>{% if account.icon %}<i class="{{ account.icon }}"></i> {% endif %}<a href="{{ account.url }}" rel="noopener">{{ account.name }}</a></li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,10 @@
+{% if include.items.size > 0 %}
+    <ul>
+        {% for item in include.items %}
+            <li>{{ item.date | date:'%Y-%m-%d' }} - <a href="{{ item.url }}">{{ item.title }}</a>{% if item.categories.size > 0 %} ({{ item.categories | join: ', ' }}){% endif %}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <small class="no-results">Nothing to show, please check back later!</small>
+{% endif %}
+

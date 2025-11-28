@@ -1,7 +1,8 @@
 ---
-layout: page
 title: "Useful Links"
 permalink: /useful-links/
+menu_order: 3
+menu_label: Resources
 ---
 
 This is a list of links that I find useful in my development work – will be updated as I find more or links become dead.

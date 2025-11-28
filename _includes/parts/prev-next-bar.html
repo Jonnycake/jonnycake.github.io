@@ -1,0 +1,14 @@
+<div class="prev-next-bar">
+    <div class="prev">
+        {% if page.previous %}
+            <a href="{{ page.previous.url }}" class="button-accent"><i class="fa fa-arrow-left"></i> Previous</a><br/>
+            <small>{{ page.previous.title }}</small>
+        {% endif %}
+    </div>
+    <div class="next">
+        {% if page.next %}
+            <a href="{{ page.next.url }}" class="button-accent">Next <i class="fa fa-arrow-right"></i></a><br/>
+            <small>{{ page.next.title }}</small>
+        {% endif %}
+    </div>
+</div>

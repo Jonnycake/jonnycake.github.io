@@ -1,1 +1,18 @@
-/_site/
+# Jekyll build output
+_site/
+
+# Jekyll cache files
+.jekyll-cache/
+.jekyll-metadata
+
+# Bundler dependencies
+bundle/
+vendor/
+
+# Sass cache
+.sass-cache/
+
+# Operating system and editor specific files
+.DS_Store
+*.swp
+*~

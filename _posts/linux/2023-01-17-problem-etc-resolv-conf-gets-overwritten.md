@@ -1,6 +1,6 @@
 ---
-layout: post
 title: "Problem: /etc/resolv.conf Gets Overwritten"
+categories: [Linux,Story]
 ---
 ## Background
 
