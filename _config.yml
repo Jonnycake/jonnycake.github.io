@@ -1,13 +1,14 @@
 site_name: Jonnycake.Tech
 title: Developer Portfolio & Blog
 gtag: G-YVTGX6JF66
+#resume_link: #PDF
 
 socials:
-  - name: Github Account
+  - name: GitHub
     label: github
     url: https://github.com/Jonnycake/
     icon: fa fa-github
-  - name: LinkedIn account
+  - name: LinkedIn
     label: linkedin
     url: https://www.linkedin.com/in/jonnycake
     icon: fa fa-linkedin
