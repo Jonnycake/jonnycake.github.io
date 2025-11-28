@@ -16,20 +16,26 @@ layout: custom-hero
 </section>
 <section class="callouts">
     <section>
-        <h2>Current Project</h2>
+        {% assign current_projects = site.projects | where_exp: 'project', 'project.end_date == nil' %}
+        <h2>Active Project{% if current_projects.size > 1 %}s{% endif %}</h2>
         <p>
-            {% if site.projects.size > 0 %}
-                {{ site.projects[0].date | date: '%Y-%m-%d' }} - <a href="{{ site.projects[0].url }}">{{ site.projects[0].title }}</a>
+            {% if current_projects.size > 0 %}
+                    {% for project in current_projects %}
+                        <a href="{{ project.url }}">{{ project.title }}</a>
+                        {% unless forloop.last %}<br/><br/>{% endunless %}
+                    {% endfor %}
+            {% else if site.projects.size > 0 %}
+                <small class="no-results"><i class="fa fa-check"></i> All projects are currently completed</small>
             {% else %}
                 <small class="no-results">Nothing to show, please check back later!</small>
             {% endif %}
         </p>
-        {% if site.projects.size > 1 %}
+        {% if site.projects.size > current_projects.size %}
             <a href="/projects.html" class="button-accent">See More</a>
         {% endif %}
     </section>
     <section>
-        <h2>Latest Blog</h2>
+        <h2>Latest Blog Post</h2>
         <p>
             {% if site.posts.size > 0 %}
                 {{ site.posts[0].date | date: '%Y-%m-%d' }} - <a href="{{ site.posts[0].url }}">{{ site.posts[0].title }}</a>

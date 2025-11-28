@@ -1,10 +1,23 @@
 ---
-title: Social Links
+title: Let's Connect
 menu_order: 4
 menu_label: Socials
 ---
-<ul>
-    {% for account in site.socials %}
-        <li>{% if account.icon %}<i class="{{ account.icon }}"></i> {% endif %}<a href="{{ account.url }}" rel="noopener">{{ account.name }}</a></li>
-    {% endfor %}
-</ul>
+<div class="text-center">
+    <p>
+        Want to see more of my work or check my professional history?  Connect with me{% if site.resume_link %} or download my resume{% endif %}:
+    </p>
+    <div class="button-group">
+        <h2>Networks</h2>
+        {% for account in site.socials %}
+            <a class="button-accent" href="{{ account.url }}" rel="noopener">{% if account.icon %}<i class="{{ account.icon }}"></i> {% endif %}{{ account.name }}</a></li>
+        {% endfor %}
+    </div>
+    {% if site.resume_link %}
+        <div class="button-group">
+            <h2>Resume</h2>
+            <a class="button-accent" href="/resume.pdf" rel="noopener"><i class="fa fa-file-pdf"></i> Download (PDF)</a>
+        </div>
+    {% endif %}
+</div>
+

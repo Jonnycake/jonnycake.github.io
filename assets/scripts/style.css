@@ -108,10 +108,8 @@ nav#main-nav > ul {
     li {
 
         margin-right: 10px;
+        margin-bottom: 0px;
         > a {
-            &:hover {
-                opacity: .8;
-            }
             background-color: var(--color-dark);
             border-radius: 10px;
             color: var(--color-light);
@@ -128,9 +126,6 @@ nav#main-nav > ul {
 }
 
 a.button-accent {
-    &:hover {
-        opacity: .8;
-    }
     background-color: var(--color-accent-dark);
     border-radius: 10px;
     color: var(--color-light) !important;
@@ -184,9 +179,14 @@ main {
 
 a {
     color: var(--color-accent-light);
+    text-decoration: none;
 
-    &:visited, &:hover {
+    &:visited {
         color: var(--color-accent-medium);
+    }
+
+    &:hover {
+        opacity: .8;
     }
 }
 
@@ -204,7 +204,7 @@ footer {
         color: var(--color-light);
         text-decoration: none;
 
-        &:visited, &:hover {
+        &:visited {
             color: var(--color-light);
         }
     }
@@ -224,11 +224,6 @@ section.callouts {
     }
 }
 
-@media screen and (max-width: 725px) {
-    section.callouts {
-        flex-direction: column;
-    }
-}
 
 
 section.main-content {
@@ -268,4 +263,37 @@ small.no-results {
 }
 pre {
     overflow: scroll;
+}
+section.project-metadata, section.project-links {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    div {
+        margin-bottom: 10px;
+        &:last-of-type {
+            margin-bottom: 0px;
+        }
+    }
+}
+
+@media screen and (max-width: 725px) {
+    section.callouts {
+        flex-direction: column;
+    }
+
+    section.main-content {
+        width: calc(100% - 30px);
+    }
+}
+li {
+    margin-bottom: 10px;
+}
+.text-center {
+    text-align: center;
+}
+
+.button-group {
+    > h2, > h3, > h4, > h5 {
+        margin-bottom: 5px;
+    }
 }
