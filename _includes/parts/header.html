@@ -31,7 +31,11 @@
             </nav>
             <nav id="main-nav">
                 <ul>
-                    {% assign page_list = site.pages | where_exp: "page", "page.menu_order != nil and page.menu_label != nil" | sort: 'menu_order' %}
+                    {% assign page_list = site.pages
+                        | where_exp: "page", "page.menu_order != nil"
+                        | where_exp: "page", "page.menu_label != nil"
+                        | sort: "menu_order"
+                    %}
                     {% for page in page_list %}
                         {% if page.menu_label %}
                             <li><a href="{{ page.url }}">{{ page.menu_label }}</a></li>
