@@ -2,6 +2,11 @@
 <section class="main-content">
     {% include parts/prev-next-bar.html all_link="/blogs.html" %}
     <h1>{{ page.title }}</h1>
+    {% if page.categories.size > 0 %}
+        <div class="categories">
+            {{ page.categories | join: ', ' }}
+        </div>
+    {% endif %}
     {{ content }}
     {% include parts/prev-next-bar.html all_link="/blogs.html" %}
 </section>
