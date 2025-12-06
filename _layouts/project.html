@@ -30,9 +30,11 @@
     </section>
 </section>
 <section class="main-content">
-    {% include parts/prev-next-bar.html all_link="/projects.html" %}
+    {% include parts/prev-next-bar.html all_link="/projects.html" position="top" %}
     <h2>README</h2>
-    {{ content }}
-    {% include parts/prev-next-bar.html all_link="/projects.html" %}
+    <div class="md-content">
+        {{ content }}
+    </div>
+    {% include parts/prev-next-bar.html all_link="/projects.html" position="bottom" %}
 </section>
 {% include parts/footer.html %}

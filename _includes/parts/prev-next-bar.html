@@ -1,4 +1,8 @@
-<div class="prev-next-bar">
+{% assign position_class="unknown" %}
+{% if include.position %}
+    {% assign position_class = include.position %}
+{% endif %}
+<div class="prev-next-bar prev-next-bar-{{ position_class }}">
     <div class="prev">
         {% if page.previous %}
             <a href="{{ page.previous.url }}" class="button-accent"><i class="fa fa-arrow-left"></i> Previous</a><br/>
