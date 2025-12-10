@@ -7,7 +7,7 @@ date: 2025-11-25
 github_link: https://github.com/Jonnycake/jonnycake.github.io
 #demo_link: 
 
-categories: [Web, Design, Jekyll, GitHub Pages]
+categories: [HTML, CSS, JS, Jekyll, Github Pages]
 ---
 ### Background
 

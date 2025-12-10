@@ -32,6 +32,13 @@ coming up with new functionality and intuitive ways to represent it.  In doing s
 it definitely strayed from the heart of Brainfuck, but it was fun to experiment
 none-the-less.
 
+### Transpiling
+
+I also experimented with the idea of a compiler that would translate the raw
+Brainycake code into C, then compile it using GCC.  I didn't quite finish the
+implementation for some of the more advanced operators, but it works for
+standard Brainfuck.
+
 ### Final Thoughts
 
 There's not much more I can really say about this project - it was just a fun toy

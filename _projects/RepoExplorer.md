@@ -7,7 +7,7 @@ end_date: 2019-03-21
 github_link: https://github.com/Jonnycake/RepoExplorer
 #demo_link: 
 
-categories: [Python, Git, Static Analysis]
+categories: [Python, Static Analysis]
 ---
 ### Background
 
