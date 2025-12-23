@@ -2,7 +2,7 @@
 title: Personal Site (jonnycake.tech)
 date: 2025-11-25
 
-#end_date:
+end_date: 2025-12-25
 
 github_link: https://github.com/Jonnycake/jonnycake.github.io
 #demo_link: 

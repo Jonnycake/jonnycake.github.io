@@ -1,6 +1,6 @@
 ---
 title: SimpleSite
-date: 2014-06-22
+date: 2011-06-22
 end_date: 2016-11-12
 
 github_link: https://github.com/Jonnycake/SimpleSite
@@ -10,9 +10,12 @@ categories: [PHP, HTML, CSS, JS, CMS]
 ---
 ### Background
 
-This was my first, and longest, project.  The initial goal was to make a social
-media platform, but it ended up just turning into a CMS and pseudo-framework.
-For a while this was what powered my personal website.
+This was my first, and longest, recorded project.  The initial goal was to make
+a social media platform, but it ended up just turning into a CMS and pseudo-
+framework. For a while this was what powered my personal website.
+
+_NOTE: Start date estimated - I do not have an exact date besides ~3 years
+before the initial commit_
 
 ### Features
 

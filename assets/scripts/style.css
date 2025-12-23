@@ -38,7 +38,31 @@ body {
     min-height: 100vh;
     color: var(--color-light);
     font-family: CommitMono;
+
+    a {
+        color: var(--color-accent-light);
+        text-decoration: none;
+
+        &:visited {
+            color: var(--color-accent-medium);
+        }
+
+        &:hover {
+            opacity: .8;
+        }
+
+        &.button-accent {
+            background-color: var(--color-accent-dark);
+            border-radius: 10px;
+            color: var(--color-light) !important;
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px;
+            margin: 10px;
+        }
+    }
 }
+
 
 
 
@@ -111,28 +135,6 @@ main {
         color: var(--color-light);
     }
 
-    a {
-        color: var(--color-accent-light);
-        text-decoration: none;
-
-        &:visited {
-            color: var(--color-accent-medium);
-        }
-
-        &:hover {
-            opacity: .8;
-        }
-
-        &.button-accent {
-            background-color: var(--color-accent-dark);
-            border-radius: 10px;
-            color: var(--color-light) !important;
-            text-decoration: none;
-            display: inline-block;
-            padding: 10px;
-            margin: 10px;
-        }
-    }
 
     small.no-results {
         display: block;
