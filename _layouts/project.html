@@ -1,7 +1,7 @@
 {% include parts/header.html %}
 <section class="hero">
     <h1>{{ page.title }}</h1>
-    <section class="project-links">
+    <section class="metadata">
         {% if page.github_link %}
             <a href="{{ page.github_link }}" class="button-accent"><i class="fa fa-github"></i> Source Code</a>
         {% endif %}
@@ -9,7 +9,7 @@
             <a href="{{ page.demo_link }}" class="button-accent"><i class="fa fa-eye"></i> Live Demo</a>
         {% endif %}
     </section>
-    <section class="project-metadata">
+    <section class="metadata">
         {% if page.date %}
             <div>
                 <strong>Project Duration:</strong><br/>

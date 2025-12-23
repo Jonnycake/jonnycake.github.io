@@ -14,7 +14,7 @@ layout: custom-hero
         goals or just make my life easier and I’d love to share them with you!
     </p>
 </section>
-<section class="callouts">
+<section class="featured">
     <section>
         {% assign current_projects = site.projects | where_exp: 'project', 'project.end_date == nil' %}
         <h2>Active Project{% if current_projects.size > 1 %}s{% endif %}</h2>
