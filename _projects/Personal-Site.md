@@ -30,8 +30,8 @@ that's fine.
 
 ### Design
 
-Visual design is one of my biggest weaknesses, but I tried to lean heavily into
-it here.  The core aspects I wanted:
+Visual design is one of my biggest weaknesses, but I tried to lean into it here.
+The core aspects I wanted:
 
 - Minimal
 - Responsive
