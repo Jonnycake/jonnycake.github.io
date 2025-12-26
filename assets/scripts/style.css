@@ -33,8 +33,8 @@
 
 :root {
     --dark-lavender: #7b5592;
-    --medium-lavender: #9060a5;
-    --light-lavender: #b394c7;
+    --medium-lavender: #a077b3;
+    --light-lavender: #c4abd3;
 
     --eerie-black: #1e1e1e;
     --gray: #a8a7ac;
@@ -64,11 +64,11 @@ body {
     font-family: CommitMono;
 
     a {
-        color: var(--color-accent-light);
+        color: var(--color-accent-medium);
         text-decoration: none;
 
         &:visited {
-            color: var(--color-accent-medium);
+            color: var(--color-accent-light);
         }
 
         &:hover {
@@ -205,7 +205,7 @@ main {
         span.subtitle {
             display:block;
             font-size:0.7em;
-            color: var(--color-accent-dark);
+            color: var(--color-accent-medium);
         }
     }
 
