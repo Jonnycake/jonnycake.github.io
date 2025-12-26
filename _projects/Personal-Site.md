@@ -42,7 +42,7 @@ I think the mono-space text on a dark background captures the idea pretty well.
 I also tried to keep it mostly text-based rather than iconography / imagery to
 satisfy the minimalism.
 
-For the font, originally I was using courier, but it felt too classic.  I opted
+For the font, originally I was using courier, but it felt too "old".  I opted
 for using [CommitMono](https://commitmono.com/) since that's what I use in my
 terminal.
 
@@ -51,7 +51,7 @@ full grayscale or black as the main color, paired with reds or greens. Instead
 I decided to take inspiration from a close friend and use purple - his favorite
 color - as an accent.  I think it came out really well.
 
-I also found that using opacity changes for hover effects on links/buttons
+I also found that using just opacity changes for hover effects on links/buttons
 worked out nicely.
 
 
@@ -62,10 +62,13 @@ simple as possible.  I allowed myself to use jQuery and font-awesome for the
 rare icons I included, but other than that, I wanted to build out styles and
 functionality by hand to avoid bloat.
 
+The other large payload is Google Tag Manager.  While I don't _really_ need
+it, if I end up blogging more, getting statistics for it will be interesting.
+
 
 ### Final Thoughts
 
-Overall, this has been a successful experience thus far and I'm happy with how
-it's coming out.  I do have to go back and make some tweaks for code style
-(designing via code has made the css a bit messy) and accessibiity, but I don't
-expect any major changes.
+Overall, this has been a successful experience and I'm happy with how it's come
+out.  I have a couple additional pieces of functionality that I may come back
+to implement later on as well, but that's TBD for now.  My next goal will be to
+start regularly adding content which is OOS here.
