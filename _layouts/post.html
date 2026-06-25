@@ -1,0 +1,22 @@
+{% include parts/header.html %}
+<section class="main-content">
+    {% include parts/prev-next-bar.html all_link="/blogs.html" position="top" %}
+    <div class="post-header">
+        <h1>{{ page.title }}</h1>
+        {% if page.categories.size > 0 %}
+            <div class="categories">
+                {{ page.categories | join: ', ' }}
+            </div>
+        {% endif %}
+        <div class="date">
+            <small>{{ page.date|date: '%Y-%m-%d' }}</small>
+        </div>
+    </div>
+    <hr/>
+    <div class="md-content">
+        {{ content }}
+        {% include parts/disclaimer.html %}
+    </div>
+    {% include parts/prev-next-bar.html all_link="/blogs.html" position="bottom" %}
+</section>
+{% include parts/footer.html %}

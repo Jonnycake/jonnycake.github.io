@@ -1,0 +1,36 @@
+site_name: Jonnycake.Tech
+title: Developer Portfolio & Blog
+gtag: G-YVTGX6JF66
+#resume_link: #PDF
+
+socials:
+  - name: GitHub
+    label: github
+    url: https://github.com/Jonnycake/
+    icon: fa fa-github
+  - name: LinkedIn
+    label: linkedin
+    url: https://www.linkedin.com/in/jonnycake
+    icon: fa fa-linkedin
+  - name: TryHackMe
+    label: tryhackme
+    url: https://tryhackme.com/p/Jonnycake
+    icon: tryhackme-logo
+
+collections:
+  posts:
+    output: true
+  projects:
+    output: true
+
+defaults:
+  - values:
+      layout: default
+  - scope:
+      type: "projects"
+    values:
+      layout: project
+  - scope:
+      type: "posts"
+    values:
+      layout: post

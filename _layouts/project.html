@@ -1,0 +1,42 @@
+{% include parts/header.html %}
+<section class="main-content">
+    <div class="secondary-nav-bar secondary-nav-bar-top">
+        <a href="/projects.html" class="button-accent"><i class="fa fa-arrow-left"></i> All Projects</a><br/>
+    </div>
+    <div class="post-header">
+        <h1>{{ page.title }}</h1>
+        <section class="metadata">
+            {% if page.github_link %}
+                <a href="{{ page.github_link }}" class="button-accent"><i class="fa fa-github"></i> Source Code</a>
+            {% endif %}
+            {% if page.demo_link %}
+                <a href="{{ page.demo_link }}" class="button-accent"><i class="fa fa-eye"></i> Live Demo</a>
+            {% endif %}
+        </section>
+        <section class="metadata">
+            {% if page.date %}
+                <div>
+                    <strong>Project Duration:</strong><br/>
+                    {{ page.date|date: '%Y-%m-%d' }} -
+                    {% if page.end_date %}
+                        {{ page.end_date }}
+                    {% else %}
+                        <em>Present</em>
+                    {% endif %}
+                </div>
+            {% endif %}
+            {% if page.categories.size > 0 %}
+                <div>
+                    <strong>Categories:</strong><br/>
+                    {{ page.categories | join: ', ' }}
+                </div>
+            {% endif %}
+        </section>
+    </div>
+    <hr />
+    <div class="md-content">
+        <h2>README</h2>
+        {{ content }}
+    </div>
+</section>
+{% include parts/footer.html %}
