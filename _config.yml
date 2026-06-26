@@ -1,6 +1,7 @@
 site_name: Jonnycake.Tech
 title: Developer Portfolio & Blog
 gtag: G-YVTGX6JF66
+permalink: /:year/:month/:day/:title.html
 #resume_link: #PDF
 
 socials:

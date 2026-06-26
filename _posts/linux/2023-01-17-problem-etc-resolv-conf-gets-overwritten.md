@@ -1,6 +1,6 @@
 ---
 title: "Problem: /etc/resolv.conf Gets Overwritten"
-categories: [Linux,Story]
+categories: [War Stories]
 ---
 ## Background
 
