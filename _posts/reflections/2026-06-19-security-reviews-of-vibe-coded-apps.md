@@ -1,6 +1,7 @@
 ---
 title: "Security Reviews of Vibe Coded Apps"
 categories: [Reflections]
+tags: [ai, appsec]
 ---
 # Background
 

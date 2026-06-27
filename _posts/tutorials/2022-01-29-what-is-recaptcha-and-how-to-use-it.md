@@ -1,6 +1,6 @@
 ---
 title: "What is reCAPTCHA and How to Use it?"
-categories: [Web Development]
+categories: [Tutorials]
 ---
 ## What is reCAPTCHA?
 

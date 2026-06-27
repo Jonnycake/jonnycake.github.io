@@ -5,7 +5,7 @@
     {% endfor %}
     {% assign all_categories = all_categories | sort | uniq %}
 
-    {% if all_categories.size > 0 %}
+    {% if all_categories.size > 0 and include.hide_category_filter != true %}
         <select class="category-filter" style="border: none;background-color: var(--color-dark);color: var(--color-light);width: 100%;text-align: center;font-size: 1.1em;margin-bottom:2em;">
             <option value="">Select a category to filter by</option>
             {% for category in all_categories %}
@@ -18,7 +18,11 @@
         {% assign sorted = include.items | sort: 'date' %}
         {% assign reversed = sorted | reverse %}
         {% for item in reversed %}
-            <li data-categories="{{ item.categories | join: ',' }}">{{ item.date | date:'%Y-%m-%d' }} - <a href="{{ item.url }}">{{ item.title }}</a>{% if item.categories.size > 0 %} ({{ item.categories | join: ', ' }}){% endif %}</li>
+            {% if include.category_first %}
+                <li data-categories="{{ item.categories | join: ',' }}"><time>{{ item.date | date:'%Y-%m-%d' }}</time> - {% if item.categories.size > 0 %}[{{ item.categories | join: ', ' }}]{% endif %} <a href="{{ item.url }}">{{ item.title }}</a></li>
+            {% else %}
+                <li data-categories="{{ item.categories | join: ',' }}"><time>{{ item.date | date:'%Y-%m-%d' }}</time> - <a href="{{ item.url }}">{{ item.title }}</a>{% if item.categories.size > 0 %} [{{ item.categories | join: ', ' }}]{% endif %}</li>
+            {% endif %}
         {% endfor %}
     </ul>
 {% else %}

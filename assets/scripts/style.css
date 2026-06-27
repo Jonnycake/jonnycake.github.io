@@ -292,6 +292,11 @@ main {
         text-align: center;
     }
 
+    div.tags {
+        font-size: 80%;
+        margin:20px;
+    }
+
     div.md-content {
         h1, h2, h3, h4, h5, h6 {
             margin-bottom: 0;

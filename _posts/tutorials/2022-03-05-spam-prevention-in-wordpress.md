@@ -1,6 +1,7 @@
 ---
 title: "Spam Prevention in Wordpress"
-categories: [Web Development]
+categories: [Tutorials]
+tags: [wordpress]
 ---
 
 ## Overview

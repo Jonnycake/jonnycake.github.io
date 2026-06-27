@@ -1,0 +1,35 @@
+---
+layout: default
+title: "Blogs by Tag"
+permalink: /tags/
+---
+
+<h1>Tags</h1>
+
+<!-- 1. Render the Tag Cloud / Quick Links -->
+<div class="tag-cloud" style="margin-bottom: 2rem; line-height: 2;">
+  {% assign sorted_tags = site.tags | sort %}
+  {% for tag in sorted_tags %}
+    {% assign tag_name = tag[0] %}
+    {% assign tag_posts = tag[1] %}
+    <a href="#{{ tag_name | slugify }}" style="margin-right: 15px; white-space: nowrap;">
+      #{{ tag_name }} ({{ tag_posts.size }})
+    </a>
+  {% endfor %}
+</div>
+
+<hr>
+
+<!-- 2. Render the Lists of Posts Grouped by Tag -->
+<div class="tag-lists">
+  {% for tag in sorted_tags %}
+    {% assign tag_name = tag[0] %}
+    {% assign tag_posts = tag[1] %}
+    
+    <div id="{{ tag_name | slugify }}" class="tag-section" style="margin-top: 2.5rem;">
+      <h2 style="border-bottom: 1px solid #ccc; padding-bottom: 5px;">#{{ tag_name }}</h2>
+    {% include parts/archive.html items=tag_posts hide_category_filter=true %}
+    </div>
+  {% endfor %}
+</div>
+

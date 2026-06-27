@@ -1,6 +1,7 @@
 ---
-title: "Lab Write-Up: TryHackMe - Templates"
-categories: [Cybersecurity Labs]
+title: "Write-Up: TryHackMe / Templates"
+categories: [Labs]
+tags: [tryhackme, appsec, ctf]
 ---
 ## Overview
 

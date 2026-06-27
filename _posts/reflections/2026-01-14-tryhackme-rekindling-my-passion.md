@@ -1,7 +1,7 @@
 ---
 title: "TryHackMe: Rekindling my Passion"
 categories: [Reflections]
-disable_disclaimer: true
+tags: [tryhackme]
 ---
 ## What is TryHackMe?
 
