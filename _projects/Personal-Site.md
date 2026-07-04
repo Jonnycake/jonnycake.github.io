@@ -8,6 +8,10 @@ github_link: https://github.com/Jonnycake/jonnycake.github.io
 #demo_link: 
 
 categories: [Jekyll, GitHub Pages, Web]
+
+description: |
+  My experience using Jekyll to build out a new personal site.  With an emphasis
+  on efficient and attractive design.
 ---
 ### Background
 

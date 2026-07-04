@@ -2,6 +2,9 @@
 title: "Write-Up: TryHackMe / Templates"
 categories: [Labs]
 tags: [tryhackme, appsec, ctf]
+description: |
+    My walkthrough for the Templates room on TryHackMe.  Exploiting Server-Side
+    Template Injection (SSTI) in PugJS to achieve Remote Code Execution (RCE).
 ---
 ## Overview
 

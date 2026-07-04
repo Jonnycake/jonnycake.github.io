@@ -1,7 +1,10 @@
 site_name: Jonnycake.Tech
 title: Developer Portfolio & Blog
+description: Tech projects, experience, tips, tricks, and more
 gtag: G-YVTGX6JF66
-permalink: /:year/:month/:day/:title.html
+permalink: /:year/:month/:day/:title
+markdown: kramdown
+canonical: https://jonnycake.tech
 #resume_link: #PDF
 
 socials:
@@ -23,6 +26,8 @@ collections:
     output: true
   projects:
     output: true
+  upcoming:
+    output: true
 
 defaults:
   - values:
@@ -35,3 +40,7 @@ defaults:
       type: "posts"
     values:
       layout: post
+  - scope:
+      type: "upcoming"
+    values:
+      layout: upcoming-post

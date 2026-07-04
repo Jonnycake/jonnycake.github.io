@@ -1,7 +1,10 @@
 ---
-title: "Spam Prevention in Wordpress"
-categories: [Tutorials]
-tags: [wordpress]
+title: "Spam Prevention in WordPress"
+categories: [Guides]
+tags: [wordpress, tutorial]
+description: |
+    My explanation of the different spam protection strategies for WordPress
+    sites and recommendations on how to use them.
 ---
 
 ## Overview
@@ -100,21 +103,21 @@ bad, IP addresses.
 - Requires a lot of maintenance unless you use a third-party service
 - Since IP addresses change, you may end up blocking out legitimate traffic
 
-## Implementing in Wordpress
+## Implementing in WordPress
 
 ### Built-in Protection
 
-Wordpress has quite a few protections against spam (specifically spam within
+WordPress has quite a few protections against spam (specifically spam within
 comments) built-in.  These include the ability to limit who can comment, the
 number of links comments, change whether comments require moderation, and even
 a blacklist to set words/phrases that can't be used.  Also, since it comes with
-Wordpress itself, it's entirely free!  You can find a full guide to using these
+WordPress itself, it's entirely free!  You can find a full guide to using these
 protections here.
 
 ### Akismet
 
 Akismet is a plugin that provides content-based detection of spam.  Despite
-being a plugin, though, it comes included with Wordpress.  The cool thing with
+being a plugin, though, it comes included with WordPress.  The cool thing with
 this plugin is that it lets you, essentially, crowd-source your filters.  For
 every comment/form entry that gets posted - it reaches out to the Akismet API
 to determine whether it believes it's spam.  This determination is made based

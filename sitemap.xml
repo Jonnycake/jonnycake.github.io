@@ -5,15 +5,20 @@ layout: null
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   {% for post in site.posts %}
     <url>
-      <loc>{{ site.url }}{{ post.url }}</loc>
+      <loc>{{ site.canonical | remove_trailing_slash }}{{ post.url }}</loc>
       <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
     </url>
   {% endfor %}
   {% for page in site.pages %}
-    {% unless page.url contains '.xml' or page.url contains '.css' or page.name == '404.html' %}
+    {% unless page.url contains '.xml' or page.url contains '.css' or page.name == '404.html' or page.noindex == true %}
     <url>
-      <loc>{{ site.url }}{{ page.url | remove: 'index.html' }}</loc>
+      <loc>{{ site.canonical | remove_trailing_slash }}{{ page.url | remove: 'index.html' }}</loc>
     </url>
     {% endunless %}
+  {% endfor %}
+  {% for project in site.projects %}
+    <url>
+      <loc>{{ site.canonical | remove_trailing_slash }}{{ project.url | remove: 'index.html' }}</loc>
+    </url>
   {% endfor %}
 </urlset>

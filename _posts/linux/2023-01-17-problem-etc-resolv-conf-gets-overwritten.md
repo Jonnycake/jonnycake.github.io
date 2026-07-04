@@ -2,6 +2,9 @@
 title: "Problem: /etc/resolv.conf Gets Overwritten"
 categories: [War Stories]
 tags: [linux]
+description: |
+  My account of a production issue where NetworkManager was overriding manual
+  ifcfg changes in /etc/resolv.conf.
 ---
 ## Background
 

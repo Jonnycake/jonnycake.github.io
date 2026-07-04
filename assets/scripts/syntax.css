@@ -174,3 +174,9 @@
   color: #a8e1fe;
   font-weight: bold;
 }
+
+div.language-diff .highlight {
+    .p, .err {
+        color: inherit;
+    }
+}

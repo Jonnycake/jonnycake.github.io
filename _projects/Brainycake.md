@@ -8,6 +8,8 @@ github_link: https://github.com/Jonnycake/Brainycake
 #demo_link: 
 
 categories: [C, Interpreter, Transpiler]
+description: |
+  My experience writing a brainfuck derivative.
 ---
 ### Background
 

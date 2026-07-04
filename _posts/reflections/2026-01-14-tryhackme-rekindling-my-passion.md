@@ -2,6 +2,9 @@
 title: "TryHackMe: Rekindling my Passion"
 categories: [Reflections]
 tags: [tryhackme]
+description: |
+  My view of my career and where cybersecurity fits in.  With an emphasis on
+  how hacking challenge sites empower my passion.
 ---
 ## What is TryHackMe?
 

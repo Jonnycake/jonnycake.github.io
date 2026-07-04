@@ -2,6 +2,9 @@
 title: "Security Reviews of Vibe Coded Apps"
 categories: [Reflections]
 tags: [ai, appsec]
+description: |
+  My reflection on AI assisted development (vibe coding) and the necessity of
+  cyber-security awareness, including an effective review methodology.
 ---
 # Background
 

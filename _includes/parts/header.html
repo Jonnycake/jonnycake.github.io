@@ -1,11 +1,30 @@
+{%- assign canonical_domain = site.canonical | remove_trailing_slash -%}
+{%- assign canonical_url = canonical_domain | append: page.url -%}
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- SEO -->
+        <link rel="canonical" href="{{ canonical_url | escape }}">
+        <meta name="description" content="{{ page.description | default: site.description | normalize_whitespace }}">
+        {% if page.noindex or page.collection == 'upcoming' %}
+            <meta name="robots" content="noindex, follow">
+        {% else %}
+            <meta name="robots" content="index, follow">
+        {% endif %}
+
+        <!-- OpenGraph -->
+        <meta property="og:site_name" content="{{ site.site_name }}">
+        <meta property="og:title" content="{{ page.title | default: site.title }}">
+        <meta property="og:description" content="{{ page.description | default: site.description | normalize_whitespace }}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ canonical_url }}">
+
         <title>{{ site.site_name }} - {{ page.title | default: site.title }}</title>
-        <link href="/assets/scripts/syntax.css" rel="stylesheet"></link>
-        <link href="/assets/scripts/style.css" rel="stylesheet"></link>
+        <link href="/assets/scripts/syntax.css?v={{ site.time | date: '%s' }}" rel="stylesheet"></link>
+        <link href="/assets/scripts/style.css?v={{ site.time | date: '%s' }}" rel="stylesheet"></link>
         <script src="https://kit.fontawesome.com/d60c30df98.js" crossorigin="anonymous"></script>
 
         {% if site.gtag and jekyll.environment == 'production' %}
@@ -46,3 +65,7 @@
             </nav>
         </header>
         <main>
+        {% assign production_like = false %}
+        {% if jekyll.environment == 'production' or jekyll.environment == 'staging' %}
+            {% assign production_like = true %}
+        {% endif %}

@@ -1,6 +1,6 @@
 {% if page.tags.size > 0 %}
     <div class="tags">
-        <strong>Tags:</strong>
+        <strong>Related Tags:</strong>
         {% for tag in page.tags %}
             <a href="/tags/#{{ tag }}">#{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
         {% endfor %}

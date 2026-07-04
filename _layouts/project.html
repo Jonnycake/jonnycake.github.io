@@ -1,8 +1,6 @@
 {% include parts/header.html %}
 <section class="main-content">
-    <div class="secondary-nav-bar secondary-nav-bar-top">
-        <a href="/projects.html" class="button-accent"><i class="fa fa-arrow-left"></i> All Projects</a><br/>
-    </div>
+    {% include parts/prev-next-bar.html previous_link="/projects.html" previous_text="All Projects" hide_next=true position="top" %}
     <div class="post-header">
         <h1>{{ page.title }}</h1>
         <section class="metadata">

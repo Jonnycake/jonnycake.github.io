@@ -2,6 +2,10 @@
 title: "Write-Up: TryHackMe / Jump"
 categories: [Labs]
 tags: [tryhackme, ctf, linux]
+description: |
+    My walkthrough of the Jump room on TryHackMe.  Exploiting common
+    misconfigurations to gain low-privileged access and escalate privileges to
+    root.
 ---
 ## Overview
 
@@ -41,7 +45,7 @@ tags: [tryhackme, ctf, linux]
 
 As with any CTF - the first step is an nmap scan.
 
-```
+```diff
 root@ip-10-66-84-93:~# nmap -p- -T4 -A -n 10.66.156.33
 Starting Nmap 7.94SVN ( https://nmap.org ) at 2026-06-27 11:11 UTC
 Nmap scan report for 10.66.156.33
@@ -49,7 +53,7 @@ Host is up (0.00033s latency).
 Not shown: 65533 closed tcp ports (reset)
 PORT   STATE SERVICE VERSION
 21/tcp open  ftp     vsftpd 3.0.5
-| ftp-anon: Anonymous FTP login allowed (FTP code 230)
++| ftp-anon: Anonymous FTP login allowed (FTP code 230)
 | drwxrwxrwx    2 115      123          4096 Apr 30 06:00 incoming [NSE: writeable]
 |_drwxr-xr-x    4 115      123          4096 Jun 09 08:22 pub
 | ftp-syst: 
@@ -127,7 +131,7 @@ ftp> ls incoming
 
 The incoming directory is empty, but pub has a README.txt - let's check it out:
 
-```
+```diff
 ftp> get README.txt
 local: README.txt remote: README.txt
 229 Entering Extended Passive Mode (|||64811|)
@@ -138,9 +142,9 @@ local: README.txt remote: README.txt
 ftp> !cat README.txt
 [ recon pipeline ]
 
-All recon jobs must be placed in incoming/.
-Files are processed automatically on arrival.
-Invalid formats are ignored.
++All recon jobs must be placed in incoming/.
++Files are processed automatically on arrival.
++Invalid formats are ignored.
 ```
 
 Just guessing that it's probably looking for a shell script to run.  I'll grab
@@ -206,13 +210,13 @@ different user.  One of the ways this manifests is writable files.  We can use
 the find command as the first step to identifying those - I also excluded some
 directories that I don't want to look at to keep the results short:
 
-```
+```diff
 recon_user@tryhackme-2404:~$ find / -writable -type f 2>/dev/null | egrep -vE ^/snap/ | egrep -vE ^/dev/ | egrep -vE ^/proc/ | egrep -vE ^/sys/
 /run/user/1001/systemd/generator.late/app-xdg\x2duser\x2ddirs@autostart.service
 /run/user/1001/systemd/generator.late/app-snap\x2duserd\x2dautostart@autostart.service
 /run/user/1001/systemd/propagate/.os-release-stage/os-release
 /tmp/recon_backup.tgz
-/opt/dev/backup.sh
++/opt/dev/backup.sh
 /opt/dev/bin/ps
 /opt/recon/scan_uploads.sh
 /home/recon_user/shell.sh
@@ -234,14 +238,14 @@ There's a couple files there, but the one that stood out to me is `backup.sh`.
 
 Let's take a look at what it does:
 
-```
+```diff
 recon_user@tryhackme-2404:~$ cat /opt/dev/backup.sh 
 #!/bin/bash
 tar -czf /tmp/recon_backup.tgz /home/recon_user
 recon_user@tryhackme-2404:~$ ls -l /tmp/recon_backup.tgz 
--rw-rw-r-- 1 dev_user dev_user 45 Jun 27 11:36 /tmp/recon_backup.tgz
++-rw-rw-r-- 1 dev_user dev_user 45 Jun 27 11:36 /tmp/recon_backup.tgz
 recon_user@tryhackme-2404:~$ date
-Sat Jun 27 11:36:53 UTC 2026
++Sat Jun 27 11:36:53 UTC 2026
 ```
 
 Okay so the script creates a tarball for the recon_user's folder in the `/tmp`
@@ -297,13 +301,13 @@ There's nothing really new - we haven't interacted with `/opt/dev/bin/ps`, but
 we can leave that alone for now.  Let's look for files that are owned by the
 target user:
 
-```
+```diff
 dev_user@tryhackme-2404:~$ find / -user monitor_user 2>/dev/null | egrep -vE ^/snap/ | egrep -vE ^/dev/ | egrep -vE ^/proc/ | egrep -vE ^/sys/
 /opt/app/data
 /opt/app/deploy_helper.sh
-/usr/local/bin/healthcheck
++/usr/local/bin/healthcheck
 /home/monitor_user
-/var/log/monitor.log
++/var/log/monitor.log
 ```
 
 Taking a look at `monitor.log` I see a process listing via `ps` and the call to
@@ -318,12 +322,12 @@ instead.
 
 Let's check out the `healthcheck` command and see if that applies:
 
-```
+```diff
 dev_user@tryhackme-2404:~$ cat /usr/local/bin/healthcheck 
 #!/bin/bash
 echo "Running as: $(whoami)"
 while true; do
-  ps aux | grep -v grep
++  ps aux | grep -v grep
   sleep 5
 done
 ```
@@ -354,9 +358,9 @@ monitor+     605       1  0 18:09 ?        00:00:00 /bin/bash /usr/local/bin/hea
 The parent process id is 1 which is the init process.  It must not be running
 out of cron or an interactive session.  Let's check for it in the services:
 
-```
+```diff
 dev_user@tryhackme-2404:~$ grep -Ri healthcheck /etc/systemd/
-/etc/systemd/system/healthcheck.service:ExecStart=/usr/local/bin/healthcheck
++/etc/systemd/system/healthcheck.service:ExecStart=/usr/local/bin/healthcheck
 grep: /etc/systemd/system/multi-user.target.wants/ec2-instance-connect.service: No such file or directory
 grep: /etc/systemd/system/multi-user.target.wants/lxd-agent-9p.service: No such file or directory
 grep: /etc/systemd/system/timers.target.wants/fwupd-refresh.timer: No such file or directory
@@ -366,7 +370,7 @@ grep: /etc/systemd/system/timers.target.wants/fwupd-refresh.timer: No such file 
 
 There we go - let's check out `/etc/systemd/system/healthcheck.service` - 
 
-```
+```diff
 dev_user@tryhackme-2404:~$ cat /etc/systemd/system/healthcheck.service
 [Unit]
 Description=System Health Check
@@ -374,7 +378,7 @@ Description=System Health Check
 [Service]
 Type=simple
 User=monitor_user
-Environment=PATH=/opt/dev/bin:/usr/local/bin:/usr/bin
++Environment=PATH=/opt/dev/bin:/usr/local/bin:/usr/bin
 ExecStart=/usr/local/bin/healthcheck
 ```
 
@@ -390,12 +394,12 @@ THM{REDACTED}
 
 We're almost there - let's do the same check for writable files:
 
-```
+```diff
 monitor_user@tryhackme-2404:~$ find / -writable -type f 2>/dev/null | egrep -vE ^/snap/ | egrep -vE ^/dev/ | egrep -vE ^/proc/ | egrep -vE ^/sys/
 /run/user/1003/systemd/generator.late/app-snap\x2duserd\x2dautostart@autostart.service
 /run/user/1003/systemd/generator.late/app-xdg\x2duser\x2ddirs@autostart.service
 /run/user/1003/systemd/propagate/.os-release-stage/os-release
-/opt/app/deploy_helper.sh
++/opt/app/deploy_helper.sh
 /usr/local/bin/healthcheck
 /home/monitor_user/flag.txt
 /home/monitor_user/.profile
@@ -422,7 +426,7 @@ effectively, impersonate a user and run a command as them.  It's considered a
 best practice when running a Linux system to never log in as root and only
 run root commands via sudo.
 
-```
+```diff
 monitor_user@tryhackme-2404:~$ sudo -l
 Matching Defaults entries for monitor_user on tryhackme-2404:
     env_reset, mail_badpass,
@@ -430,16 +434,16 @@ Matching Defaults entries for monitor_user on tryhackme-2404:
     use_pty, env_keep+=LESS
 
 User monitor_user may run the following commands on tryhackme-2404:
-    (ops_user) NOPASSWD: /usr/local/bin/deploy.sh
++    (ops_user) NOPASSWD: /usr/local/bin/deploy.sh
 ```
 
 Ah-hah!  So we can run the `deploy.sh` script as the ops_user.  Let's see what
 it does:
 
-```
+```diff
 #!/bin/bash
 cd /opt/app 2>/dev/null
-./deploy_helper.sh
++./deploy_helper.sh
 ```
 
 It does a whole lot of nothing, but it does run the deploy_helper file that we
@@ -465,13 +469,13 @@ THM{REDACTED}
 Last step - since the previous jump was using sudo, let's just take a look at
 that first:
 
-```
+```diff
 ops_user@tryhackme-2404:~$ sudo -l
 Matching Defaults entries for ops_user on tryhackme-2404:
     env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, use_pty, env_keep+=LESS
 
 User ops_user may run the following commands on tryhackme-2404:
-    (root) NOPASSWD: /usr/bin/less
++    (root) NOPASSWD: /usr/bin/less
 ```
 
 Well there you go!  Let's take a look at [GTFOBins](https://gtfobins.org/) and

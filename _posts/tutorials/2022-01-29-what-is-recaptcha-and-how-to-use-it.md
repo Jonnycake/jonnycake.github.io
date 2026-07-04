@@ -1,6 +1,10 @@
 ---
 title: "What is reCAPTCHA and How to Use it?"
-categories: [Tutorials]
+categories: [Guides]
+tags: [tutorial]
+description: |
+  My explanation comparing the different versions of reCAPTCHA and instructions
+  for implementing it onto your site.
 ---
 ## What is reCAPTCHA?
 

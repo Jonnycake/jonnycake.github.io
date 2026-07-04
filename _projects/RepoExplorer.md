@@ -8,6 +8,10 @@ github_link: https://github.com/Jonnycake/RepoExplorer
 #demo_link: 
 
 categories: [Python, Static Analysis, Tooling, CLI]
+
+description: |
+  My experience writing a tool to identify interdependent files in a Git
+  repository.
 ---
 ### Background
 

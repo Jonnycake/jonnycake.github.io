@@ -4,4 +4,8 @@ title: Blogs
 menu_order: 2
 menu_label: Blogs
 ---
-{% include parts/archive.html items=site.posts category_first=true %}
+{% assign upcoming_link = false %}
+{% if site.upcoming.size > 0 %}
+    {% assign  upcoming_link = '/upcoming' %}
+{% endif %}
+{% include parts/archive.html items=site.posts category_first=true upcoming_link=upcoming_link %}

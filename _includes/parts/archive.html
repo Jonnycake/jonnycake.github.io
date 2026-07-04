@@ -1,3 +1,4 @@
+{% assign upcoming_text = include.upcoming_text | default: "Click here to see what's coming up" %}
 {% if include.items.size > 0 %}
     {% assign all categories = [] %}
     {% for item in include.items %}
@@ -15,14 +16,32 @@
     {% endif %}
 
     <ul class="archive-list">
-        {% assign sorted = include.items | sort: 'date' %}
-        {% assign reversed = sorted | reverse %}
-        {% for item in reversed %}
-            {% if include.category_first %}
-                <li data-categories="{{ item.categories | join: ',' }}"><time>{{ item.date | date:'%Y-%m-%d' }}</time> - {% if item.categories.size > 0 %}[{{ item.categories | join: ', ' }}]{% endif %} <a href="{{ item.url }}">{{ item.title }}</a></li>
-            {% else %}
-                <li data-categories="{{ item.categories | join: ',' }}"><time>{{ item.date | date:'%Y-%m-%d' }}</time> - <a href="{{ item.url }}">{{ item.title }}</a>{% if item.categories.size > 0 %} [{{ item.categories | join: ', ' }}]{% endif %}</li>
-            {% endif %}
+        {% if include.upcoming_link %}
+            <li class="upcoming-cta" data-categories="">
+                <a href="{{ include.upcoming_link }}">{{ upcoming_text }}</a>
+            </li>
+        {% endif %}
+        {% assign grouped = include.items | group_by_exp: "item", "item.order | default: 9999" %}
+        {% assign groups_sorted = grouped | sort: 'name' %}
+        {% for group in groups_sorted %}
+            {% assign sorted = group.items | sort: 'date' %}
+            {% assign reversed = sorted | reverse %}
+            {% for item in reversed %}
+                <li data-categories="{{ item.categories | join: ',' }}">
+                    {% if item.target_date %}
+                        <time>{{ item.target_date }}</time> -
+                    {% elsif item.collection == 'upcoming' %}
+                        <time>Pending Schedule</time> - 
+                    {% else %}
+                        <time>{{ item.date | date:'%Y-%m-%d' }}</time> - 
+                    {% endif %}
+                    {% if include.category_first %}
+                        {% if item.categories.size > 0 %}[{{ item.categories | join: ', ' }}]{% endif %} <a href="{{ item.url }}">{{ item.title }}</a>
+                    {% else %}
+                        <a href="{{ item.url }}">{{ item.title }}</a>{% if item.categories.size > 0 %} [{{ item.categories | join: ', ' }}]{% endif %}
+                    {% endif %}
+                </li>
+            {% endfor %}
         {% endfor %}
     </ul>
 {% else %}

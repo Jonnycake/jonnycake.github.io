@@ -7,6 +7,10 @@ github_link: https://github.com/Jonnycake/SimpleSite
 #demo_link: 
 
 categories: [PHP, CMS, Web]
+
+description: |
+  My experience with my first, and longest, recorded project.  It was a CMS used
+  for my personal websites.
 ---
 ### Background
 

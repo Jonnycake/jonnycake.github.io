@@ -24,14 +24,14 @@ layout: custom-hero
                         <a href="{{ project.url }}">{{ project.title }}</a>
                         {% unless forloop.last %}<br/><br/>{% endunless %}
                     {% endfor %}
-            {% else if site.projects.size > 0 %}
+            {% elsif site.projects.size > 0 %}
                 <small class="no-results"><i class="fa fa-check"></i> All projects are currently completed</small>
             {% else %}
                 <small class="no-results">Nothing to show, please check back later!</small>
             {% endif %}
         </p>
         {% if site.projects.size > current_projects.size %}
-            <a href="/projects.html" class="button-accent">See Past Projects</a>
+            <a href="/projects" class="button-accent">See Past Projects</a>
         {% endif %}
     </section>
     <section>
@@ -44,7 +44,7 @@ layout: custom-hero
             {% endif %}
         </p>
         {% if site.posts.size > 1 %}
-            <a href="/blogs.html" class="button-accent">See More</a>
+            <a href="/blogs" class="button-accent">See More</a>
         {% endif %}
     </section>
 </section>
