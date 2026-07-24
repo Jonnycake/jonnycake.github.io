@@ -2,7 +2,6 @@
 title: "Lab Write-Up: TryHackMe / Profiles"
 categories: [Labs]
 tags: [tryhackme, ctf, dfir, linux]
-target_date: Mid July
 order: 1
 description: |
   My walkthrough of the Profiles room on TryHackMe.  Examining a memory dump
